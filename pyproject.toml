@@ -1,0 +1,12 @@
+[project]
+name = "euphemism-topic"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "ipykernel>=7.1.0",
+    "ipywidgets>=8.1.8",
+    "jupyter>=1.1.1",
+    "transformer-lens>=2.16.1",
+    "transformers>=4.57.3",
+]
