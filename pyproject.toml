@@ -10,3 +10,22 @@ dependencies = [
     "transformer-lens>=2.16.1",
     "transformers>=4.57.3",
 ]
+
+# Define a group for packages that ONLY run/compile on NVIDIA GPUs
+[dependency-groups]
+gpu = [
+    "accelerate>=0.26.0",
+    "torch",
+]
+
+# This tells uv to try finding torch in the CUDA index first 
+# if we specifically request it via command line flags (see Makefile)
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu130" }
+torchvision = { index = "pytorch-cu130" } 
+torchaudio = { index = "pytorch-cu130" }
